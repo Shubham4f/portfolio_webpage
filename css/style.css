@@ -1,0 +1,542 @@
+:root {
+    --pri_color: #c3073f;
+    --scnd_color: #f8f9fa;
+    --menu_color: #1a1a1d;
+    --head_font: 'Montserrat', sans-serif;
+    --dsec_font: 'Lato', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+
+.navbar_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--menu_color);
+    padding: 2rem 0rem 2rem 0rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+.navbar_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--menu_color);
+    z-index: 3;
+}
+
+.navbar_logo a {
+    font-family: var(--head_font);
+    color: var(--scnd_color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    position: absolute;
+    left: 12vw;
+    text-decoration: none;
+}
+
+.navbar {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    position: absolute;
+    right: 5vw;
+}
+
+.navbar_item {
+    margin: 0 1.5rem;
+}
+
+.navbar_link {
+    font-family: var(--head_font);
+    color: var(--scnd_color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.35s ease;
+    padding: 1rem;
+    padding: 0.5rem;
+}
+
+.navbar_link:hover {
+    color: var(--pri_color);
+    transition: color 0.35s ease;
+}
+
+.s_active{
+    background: var(--pri_color);
+    border-radius: 0.4rem;
+    transition: 0.1s ease;
+}
+
+.s_active:hover{
+    color: var(--scnd_color);
+}
+/* I chose this breakpoint because after this width the gap between logo text and menu bar text becomes to low */
+
+@media screen and (max-width:1100px) {
+    * {
+        font-size: 14px;
+    }
+    .navbar_div {
+        z-index: 100;
+    }
+    .navbar {
+        position: absolute;
+        top: -50rem;
+        flex-direction: column;
+        right: 0;
+        left: 0;
+        height: 60vh;
+        padding: 0;
+        width: 100vw;
+        z-index: 2;
+        opacity: 0;
+        background: var(--menu_color);
+        transition: all 1s ease;
+    }
+    .nav_active {
+        top: 90%;
+        opacity: 1;
+        transition: all 1s ease;
+    }
+    .small_menu {
+        position: absolute;
+        right: 5vw;
+        cursor: pointer;
+        background: var(--menu_color);
+        z-index: 3;
+    }
+    .navbar_item {
+        margin: 2rem;
+    }
+    .navbar_link {
+        font-size: 1.5rem;
+    }
+    .mbar {
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background: var(--scnd_color);
+        border-radius: 2px;
+        transition: all 0.4s ease;
+    }
+    .m_active .mbar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        transition: all 0.4s ease;
+    }
+    .m_active .mbar:nth-child(2) {
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+    .m_active .mbar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        transition: all 0.4s ease;
+    }
+}
+
+/* I am using this break ponit to  shrink text for smaller devices*/
+
+@media screen and (max-width:500px) {
+    * {
+        font-size: 10px;
+    }
+    .navbar {
+        height: 40vh;
+    }
+}
+
+/* Home */
+
+.home_div {
+    padding: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--pri_color);
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myimg {
+    height: 20rem;
+}
+
+.name {
+    font-family: var(--head_font);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--scnd_color);
+    text-align: center;
+    margin: 1.2rem;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-long-arrow-alt-left::before {
+    font-size: 5rem;
+    color: var(--scnd_color);
+}
+
+.icon {
+    padding: 0 2rem;
+}
+
+.fa-mouse:before {
+    font-size: 2rem;
+    color: var(--scnd_color);
+}
+
+.fa-long-arrow-alt-right::before {
+    font-size: 5rem;
+    color: var(--scnd_color);
+}
+
+.desc {
+    font-size: 1.5rem;
+    color: var(--scnd_color);
+    margin: 1.2rem;
+    font-family: var(--dsec_font);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* No media querry required here for home as all sizes are relative and i already changed the sizes while writing nav css  */
+
+/* Skills */
+
+.even_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    background: var(--scnd_color);
+}
+
+.even_heading {
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--head_font);
+    font-weight: 700;
+    color: var(--menu_color);
+    padding-top: 2rem;
+}
+
+.black_d::before {
+    color: var(--menu_color);
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5rem;
+    margin-top: 3rem;
+}
+
+.skills_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: var(--pri_color);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 3px rgb(97, 95, 95);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.skills_card:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.skills_item {
+    font-size: 2rem;
+    color: var(--scnd_color);
+    font-family: var(--head_font);
+    margin: 1rem;
+}
+
+.sicon::before {
+    color: var(--scnd_color);
+    font-size: 2rem;
+}
+
+/* Here i found breakpoint to be 890 */
+
+@media screen and (max-width:890px) {
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Next breakpoint 580 */
+
+@media screen and (max-width:580px) {
+    .skills {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ACHIEVEMENT */
+
+.odd_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    background: var(--pri_color);
+}
+
+.odd_heading {
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--head_font);
+    font-weight: 700;
+    color: var(--scnd_color);
+    padding-top: 2rem;
+}
+
+.achi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.achi ul {
+    margin: 4rem 2rem;
+    width: 35vw;
+}
+
+.achi ul li {
+    color: var(--scnd_color);
+    font-size: 1.5rem;
+    font-family: var(--dsec_font);
+    margin: 1rem;
+}
+
+.contact_btn {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 2px solid var(--scnd_color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact_btn a {
+    color: var(--scnd_color);
+    font-size: 1.5rem;
+    font-family: var(--dsec_font);
+    margin: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cicon::before {
+    color: var(--scnd_color);
+    font-size: 1.5rem;
+    margin: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact_btn:hover a, .contact_btn:hover .cicon::before {
+    color: var(--menu_color);
+    transition: all 0.3s ease;
+}
+
+.contact_btn:hover {
+    background: var(--scnd_color);
+    transition: all 0.3s ease;
+}
+
+/* After 750px text gets too long */
+
+@media screen and (max-width:750px) {
+    .achi {
+        flex-direction: column;
+        width: 70vw;
+    }
+    .achi ul {
+        margin: 0;
+        width: 65vw;
+    }
+    .contact_btn {
+        margin-top: 2rem;
+    }
+}
+
+/* Gallery */
+
+.gallery {
+    display: grid;
+    width: 70vw;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5rem;
+    margin-top: 3rem;
+}
+
+.img_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: var(--pri_color);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 3px rgb(97, 95, 95);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.img_card:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.img_card img {
+    width: 30vw;
+}
+
+/* After 600px imag becomes small */
+
+@media screen and (max-width:890px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .img_card img {
+        width: 60vw;
+    }
+}
+
+/* Contact */
+
+.contact {
+    margin-top: 3rem;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact form input {
+    width: 65vw;
+    margin: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--scnd_color);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    outline: none;
+    color: var(--scnd_color);
+    font-family: var(--dsec_font);
+}
+
+.contact form input::placeholder {
+    color: var(--scnd_color);
+    font-family: var(--dsec_font);
+    font-style: italic;
+}
+
+.contact form textarea {
+    width: 65vw;
+    margin: 1.2rem;
+    margin-bottom: 1.2rem;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--scnd_color);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    outline: none;
+    color: var(--scnd_color);
+    font-family: var(--dsec_font);
+}
+
+.contact form textarea::placeholder {
+    color: var(--scnd_color);
+    font-family: var(--dsec_font);
+    font-style: italic;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--menu_color);
+    position: relative;
+    padding: 1.5rem 0;
+}
+
+.made_text {
+    font-size: 1rem;
+    color: var(--scnd_color);
+    font-family: var(--dsec_font);
+    font-style: italic;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 3rem;
+}
+
+.f_ico_div {
+    margin: 0.5rem;
+}
+
+.f_ico_div a {
+    color: var(--scnd_color);
+    transition: 0.3s ease;
+}
+
+.f_ico_div a:hover {
+    color: var(--pri_color);
+    transition: 0.3s ease;
+}
+
+.f_ico::before {
+    font-size: 1.5rem;
+}
+
+/* After 600px Text and icons mixing */
+
+@media screen and (max-width:600px) {
+    .made_text {
+        position: absolute;
+        left: 3rem;
+    }
+}
